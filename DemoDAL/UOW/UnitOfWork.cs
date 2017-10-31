@@ -2,30 +2,40 @@
 using DAL;
 using DemoDAL.Context;
 using Microsoft.EntityFrameworkCore;
+using DAL.Context;
+using DAL.Repositories;
 
 namespace DemoDAL.UOW
 {
     public class UnitOfWork : IUnitOfWork
     {
         // public ICustomerRepository CustomerRepository { get; internal set; }
-        private EASVContext context;
+        private VideoAppContext context;
+        private EASVContext easvContext;
         private static DbContextOptions<EASVContext> optionsStatic;
 
-        public IVideoRepository VideoReposotory => throw new NotImplementedException();
+        public IVideoRepository VideoReposotory { get; internal set; }
 
-        public UnitOfWork(DbOptions opt)
+        public UnitOfWork()
+        {
+            context = new VideoAppContext();
+            context.Database.EnsureCreated();
+            VideoReposotory = new VideoRepo(context);
+        }
+
+    public UnitOfWork(DbOptions opt)
         {
              if(opt.Environment == "Development" && String.IsNullOrEmpty(opt.ConnectionString)){
                 optionsStatic = new DbContextOptionsBuilder<EASVContext>()
                    .UseInMemoryDatabase("TheDB")
                    .Options;
-                context = new EASVContext(optionsStatic);
+                easvContext = new EASVContext(optionsStatic);
             }
             else{
                 var options = new DbContextOptionsBuilder<EASVContext>()
                 .UseSqlServer(opt.ConnectionString)
                     .Options;
-                context = new EASVContext(options);
+                easvContext = new EASVContext(options);
             }
 
             //CustomerRepository = new CustomerRepository(context);

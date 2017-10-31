@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Facade\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DemoDAL\DAL.csproj" />
   </ItemGroup>
 </Project>

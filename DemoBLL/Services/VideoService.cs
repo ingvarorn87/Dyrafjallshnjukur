@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using BLL.BusinessObjects;
 using BLL.Converters;
+using DAL;
 
 namespace BLL.Services
 {
@@ -10,13 +11,15 @@ namespace BLL.Services
     {
         VideoConverter conv = new VideoConverter();
 
-
-
-
-
-
+        DALFacade facade;
+        public VideoService(DALFacade facade)
+        {
+            this.facade = facade;
+        }
+                
         public VideoBO Create(VideoBO vid)
         {
+                
             throw new NotImplementedException();
         }
 
