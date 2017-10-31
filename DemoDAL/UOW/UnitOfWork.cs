@@ -1,4 +1,5 @@
 ﻿using System;
+using DAL;
 using DemoDAL.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +10,9 @@ namespace DemoDAL.UOW
         // public ICustomerRepository CustomerRepository { get; internal set; }
         private EASVContext context;
         private static DbContextOptions<EASVContext> optionsStatic;
-           
+
+        public IVideoRepository VideoReposotory => throw new NotImplementedException();
+
         public UnitOfWork(DbOptions opt)
         {
              if(opt.Environment == "Development" && String.IsNullOrEmpty(opt.ConnectionString)){
