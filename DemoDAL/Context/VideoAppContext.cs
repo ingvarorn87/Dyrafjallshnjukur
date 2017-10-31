@@ -21,7 +21,7 @@ namespace DAL.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=tcp:videomenuserver.database.windows.net,1433;Initial Catalog=VideoMenuDB;Persist Security Info=False;User ID=gudlaug;Password=Banana13;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer(@"Server=tcp:dyrafjallshnjukur.database.windows.net,1433;Initial Catalog=VideoDyrafjallshnjukurDB;Persist Security Info=False;User ID=dyrafjallshnjukur;Password=Kukur007;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 

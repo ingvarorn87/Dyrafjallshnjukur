@@ -5,7 +5,7 @@ namespace DemoDAL
     public interface IUnitOfWork : IDisposable
     {
         //ICustomerRepository CustomerRepository { get; }
-        IVideoRepository VideoReposotory { get; }
+        IVideoRepository VideoRepository { get; }
        
         int Complete();
     }

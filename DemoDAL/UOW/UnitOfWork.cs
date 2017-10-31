@@ -14,13 +14,13 @@ namespace DemoDAL.UOW
         private EASVContext easvContext;
         private static DbContextOptions<EASVContext> optionsStatic;
 
-        public IVideoRepository VideoReposotory { get; internal set; }
+        public IVideoRepository VideoRepository { get; internal set; }
 
         public UnitOfWork()
         {
             context = new VideoAppContext();
             context.Database.EnsureCreated();
-            VideoReposotory = new VideoRepo(context);
+            VideoRepository = new VideoRepo(context);
         }
 
     public UnitOfWork(DbOptions opt)
