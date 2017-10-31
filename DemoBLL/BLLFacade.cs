@@ -8,7 +8,7 @@ using System.Text;
 
 namespace BLL
 {
-    class BLLFacade
+    public class BLLFacade
     {
         public IVideoService VideoService
         {

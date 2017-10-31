@@ -1,5 +1,5 @@
 ﻿using BLL;
-using BLL.Facade;
+using BLL.BusinessObjects;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -15,15 +15,15 @@ namespace CustomerRestAPI
             Configuration = configuration;
         }
 
-		public Startup(IHostingEnvironment env)
-		{
-			var builder = new ConfigurationBuilder()
-				.SetBasePath(env.ContentRootPath)
-				.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-				.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-				.AddEnvironmentVariables();
-			Configuration = builder.Build();
-		}
+		//public Startup(IHostingEnvironment env)
+		//{
+		//	var builder = new ConfigurationBuilder()
+		//		.SetBasePath(env.ContentRootPath)
+		//		.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+		//		.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+		//		.AddEnvironmentVariables();
+		//	Configuration = builder.Build();
+		//}
 
         public IConfiguration Configuration { get; }
 
@@ -38,25 +38,45 @@ namespace CustomerRestAPI
 					   .AllowAnyHeader();
 			}));
 
-            services.AddSingleton(Configuration);
-            services.AddScoped<IBLLFacade, BLLFacade>();
+            //services.AddSingleton(Configuration);
+            
         
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            
             if (env.IsDevelopment())
             {
-				loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-				loggerFactory.AddDebug();
+                app.UseDeveloperExceptionPage();
+                var facade = new BLLFacade();
 
-				app.UseDeveloperExceptionPage();
+                facade.VideoService.Create(
+                      new VideoBO()
+                      {
+                          VideoName = "Avengers"
+                         
+                      });
+                facade.VideoService.Create(
+                    new VideoBO()
+                    {
+                        VideoName = "Iron Man"
+                        
+                    });
+                facade.VideoService.Create(
+                    new VideoBO()
+                    {
+                        VideoName = "Thor"
+                        
+                    });
+
+
+
             }
 
             app.UseMvc();
         }
+    
     }
 }
 

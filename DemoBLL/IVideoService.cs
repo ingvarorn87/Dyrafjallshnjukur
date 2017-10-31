@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BLL
 {
-    interface IVideoService
+     public interface IVideoService
     {
         VideoBO Create(VideoBO vid);
 
