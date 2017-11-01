@@ -51,24 +51,24 @@ namespace CustomerRestAPI
                 app.UseDeveloperExceptionPage();
                 var facade = new BLLFacade();
 
-                facade.VideoService.Create(
-                      new VideoBO()
-                      {
-                          VideoName = "Avengers"
+                //facade.VideoService.Create(
+                //      new VideoBO()
+                //      {
+                //          VideoName = "Avengers"
                          
-                      });
-                facade.VideoService.Create(
-                    new VideoBO()
-                    {
-                        VideoName = "Iron Man"
+                //      });
+                //facade.VideoService.Create(
+                //    new VideoBO()
+                //    {
+                //        VideoName = "Iron Man"
                         
-                    });
-                facade.VideoService.Create(
-                    new VideoBO()
-                    {
-                        VideoName = "Thor"
+                //    });
+                //facade.VideoService.Create(
+                //    new VideoBO()
+                //    {
+                //        VideoName = "Thor"
                         
-                    });
+                //    });
 
 
 
