@@ -14,7 +14,9 @@ namespace BLL.BusinessObjects
         [MinLength(2)]
         public string VideoName { get; set; }
 
-        public string Genre { get; set; }
+        public int GenreId { get; set; }
+        public GenreBO Genre { get; set; }
+
         public int Year { get; set; }
         public bool Available { get; set; }
     }

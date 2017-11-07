@@ -43,7 +43,7 @@ namespace BLL.Services
             using (var uow = facade.UnitOfWork)
             {
                 var videoEntity = uow.VideoRepository.Get(Id);
-                //videoEntity.Genre = uow.GenreRepository.Get(videoEntity.GenreId);
+                videoEntity.Genre = uow.GenreRepository.Get(videoEntity.GenreId);
                 return conv.Convert(videoEntity);
             }
         }
@@ -67,10 +67,10 @@ namespace BLL.Services
                     throw new InvalidOperationException("Video not found");
                 }
                 videoFromDb.VideoName = vid.VideoName;
-                //videoFromDb.GenreId = vid.GenreId;
+                videoFromDb.GenreId = vid.GenreId;
 
                 uow.Complete();
-                //videoFromDb.Genre = uow.GenreRepository.Get(videoFromDb.GenreId);
+                videoFromDb.Genre = uow.GenreRepository.Get(videoFromDb.GenreId);
                 return conv.Convert(videoFromDb);
             }
         }

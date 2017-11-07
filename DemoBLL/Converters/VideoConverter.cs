@@ -1,8 +1,5 @@
 ﻿using BLL.BusinessObjects;
 using DAL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BLL.Converters
 {
@@ -15,7 +12,7 @@ namespace BLL.Converters
             {
                 Id = vid.Id,
                 VideoName = vid.VideoName,
-                Genre = vid.Genre,
+                GenreId = vid.GenreId,
                 Year = vid.Year,
                 Available = vid.Available
             };
@@ -29,7 +26,7 @@ namespace BLL.Converters
             {
                 Id = vid.Id,
                 VideoName = vid.VideoName,
-                Genre = vid.Genre,
+                Genre = new GenreConverter().Convert(vid.Genre),
                 Year = vid.Year,
                 Available = vid.Available
             };
