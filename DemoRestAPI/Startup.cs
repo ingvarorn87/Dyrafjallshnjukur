@@ -51,19 +51,19 @@ namespace CustomerRestAPI
                 app.UseDeveloperExceptionPage();
                 var facade = new BLLFacade();
 
-                /*var actionGenre = facade.GenreService.Create(
-                        new GenreBO()
-                        {
-                            Name = "Action"
-                        });
+                //var actionGenre = facade.GenreService.Create(
+                //        new GenreBO()
+                //        {
+                //            Name = "Action"
+                //        });
 
-                facade.VideoService.Create(
-                      new VideoBO()
-                      {
-                          VideoName = "THIS GENRE TEST",
-                          GenreId = actionGenre.Id
+                //facade.VideoService.Create(
+                //      new VideoBO()
+                //      {
+                //          VideoName = "THIS GENRE TEST",
+                //          GenreId = actionGenre.Id
 
-                      });*/
+                //      });
 
                 //facade.VideoService.Create(
                 //    new VideoBO()

@@ -26,6 +26,7 @@ namespace BLL.Converters
             {
                 Id = vid.Id,
                 VideoName = vid.VideoName,
+                GenreId = vid.GenreId,
                 Genre = new GenreConverter().Convert(vid.Genre),
                 Year = vid.Year,
                 Available = vid.Available
