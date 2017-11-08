@@ -56,11 +56,21 @@ namespace CustomerRestAPI
                 //        {
                 //            Name = "Action"
                 //        });
+                //var comedyGenre = facade.GenreService.Create(
+                //        new GenreBO()
+                //        {
+                //            Name = "Comedy"
+                //        });
+                //var adventureGenre = facade.GenreService.Create(
+                //        new GenreBO()
+                //        {
+                //            Name = "Adventure"
+                //        });
 
                 //facade.VideoService.Create(
                 //      new VideoBO()
                 //      {
-                //          VideoName = "THIS GENRE TEST",
+                //          VideoName = "Avatar",
                 //          GenreId = actionGenre.Id
 
                 //      });
@@ -68,13 +78,15 @@ namespace CustomerRestAPI
                 //facade.VideoService.Create(
                 //    new VideoBO()
                 //    {
-                //        VideoName = "Iron Man"
+                //        VideoName = "Iron Man",
+                //       GenreId = adventureGenre.Id
 
                 //    });
                 //facade.VideoService.Create(
                 //    new VideoBO()
                 //    {
-                //        VideoName = "Thor"
+                //        VideoName = "Thor",
+                //        GenreId = comedyGenre.Id
 
                 //    });
 
