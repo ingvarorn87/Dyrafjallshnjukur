@@ -51,29 +51,31 @@ namespace CustomerRestAPI
                 app.UseDeveloperExceptionPage();
                 var facade = new BLLFacade();
 
-                //var actionGenre = facade.GenreService.Create(
-                //        new GenreBO()
-                //        {
-                //            Name = "Action"
-                //        });
-                //var comedyGenre = facade.GenreService.Create(
-                //        new GenreBO()
-                //        {
-                //            Name = "Comedy"
-                //        });
-                //var adventureGenre = facade.GenreService.Create(
-                //        new GenreBO()
-                //        {
-                //            Name = "Adventure"
-                //        });
+                var actionGenre = facade.GenreService.Create(
+                        new GenreBO()
+                        {
+                            Name = "Action"
+                        });
+                var comedyGenre = facade.GenreService.Create(
+                        new GenreBO()
+                        {
+                            Name = "Comedy"
+                        });
+                var adventureGenre = facade.GenreService.Create(
+                        new GenreBO()
+                        {
+                            Name = "Adventure"
+                        });
 
-                //facade.VideoService.Create(
-                //      new VideoBO()
-                //      {
-                //          VideoName = "Avatar",
-                //          GenreId = actionGenre.Id
+                facade.VideoService.Create(
+                      new VideoBO()
+                      {
+                          VideoName = "Avatar",
+                          GenreId = actionGenre.Id,
+                          Year = 2008,
+                          Available = true
 
-                //      });
+                      });
 
                 //facade.VideoService.Create(
                 //    new VideoBO()

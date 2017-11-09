@@ -68,7 +68,9 @@ namespace BLL.Services
                 }
                 videoFromDb.VideoName = vid.VideoName;
                 videoFromDb.GenreId = vid.GenreId;
-
+                videoFromDb.Available = vid.Available;
+                videoFromDb.Year = vid.Year;
+                
                 uow.Complete();
                 videoFromDb.Genre = uow.GenreRepository.Get(videoFromDb.GenreId);
                 return conv.Convert(videoFromDb);
