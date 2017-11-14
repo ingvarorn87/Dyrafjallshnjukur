@@ -61,9 +61,17 @@ namespace CustomerRestAPI.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
-            facade.VideoService.Delete(id);
+            try
+            {
+                return Ok(facade.VideoService.Delete(id));
+            }
+            catch (InvalidOperationException e)
+            {
+                return StatusCode(404, e.Message);
+            }
+            
         }
     }
 }
